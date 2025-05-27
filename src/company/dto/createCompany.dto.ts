@@ -1,11 +1,11 @@
 import {
   IsEmail,
   IsNotEmpty,
-  IsPhoneNumber,
   IsString,
   MaxLength,
   MinLength,
 } from 'class-validator';
+import { IsPhoneNumber } from '../validator/isPhone.validator';
 
 export class CreateCompanyDto {
   @IsString()
