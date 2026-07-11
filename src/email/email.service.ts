@@ -20,7 +20,7 @@ export class EmailService {
   async sendMailSandBox(createEmailServerDto: CreateEmailDto) {
     try {
       return await this.transporter.sendMail({
-        from: '"Totweb 👻" <alialievaaliev@yandex.ru>', // sender address
+        from: `"Totweb" <${this.configService.getOrThrow('SMTP_USER')}>`,
         to: createEmailServerDto.to, // list of receivers
         subject: 'Подтвердите свою почту в totweb', // Subject line
         html: `
