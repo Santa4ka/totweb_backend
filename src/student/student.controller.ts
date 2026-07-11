@@ -23,6 +23,8 @@ import { Roles } from './decorators/role.decorator';
 import { Role } from './entities/student.entity';
 import { StudentAuthGuard } from './guards/studentAuth.guard';
 import { StudentRoleGuard } from './guards/studentRole.guard';
+import { CompanyAuthGuard } from 'src/company/guards/companyAuth.guard';
+import { CompanyRoleGuard } from 'src/company/guards/companyRole.guard';
 
 @Controller('student')
 export class StudentController {
@@ -59,6 +61,8 @@ export class StudentController {
     return this.studentService.activate(link, response);
   }
 
+  @Roles(Role.Company)
+  @UseGuards(CompanyAuthGuard, CompanyRoleGuard)
   @Get('findAll')
   findAll() {
     return this.studentService.findAll();

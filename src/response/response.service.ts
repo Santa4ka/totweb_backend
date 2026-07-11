@@ -34,6 +34,7 @@ export class ResponseService {
     return this.responseRepository.save({
       student,
       vacancy,
+      coverLetter: createResponseDto.coverLetter ?? null,
     });
   }
 

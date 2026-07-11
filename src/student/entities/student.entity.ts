@@ -49,6 +49,12 @@ export class Student {
   @Column('varchar', { array: true, default: [] })
   locationPreferences: string[];
 
+  @Column('varchar', { array: true, default: [] })
+  achievements: string[];
+
+  @Column('varchar', { array: true, default: [] })
+  certificates: string[];
+
   @Column({ unique: true })
   activateLink: string;
 

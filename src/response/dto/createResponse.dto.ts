@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from 'class-validator';
 
 export class CreateResponseDto {
   @IsNumber()
@@ -8,4 +14,9 @@ export class CreateResponseDto {
   @IsNumber()
   @IsNotEmpty()
   vacancyId: number;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(4000)
+  coverLetter?: string;
 }

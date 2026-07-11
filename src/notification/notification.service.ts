@@ -46,6 +46,7 @@ export class NotificationService {
       company,
       student,
       vacancy,
+      coverLetter: createNotificationDto.coverLetter ?? null,
     });
   }
 

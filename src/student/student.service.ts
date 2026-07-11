@@ -206,7 +206,25 @@ export class StudentService {
   }
 
   async findAll() {
-    return this.studentRepository.find();
+    return this.studentRepository.find({
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        university: true,
+        lastYear: true,
+        contactEmail: true,
+        contactPhone: true,
+        keySkills: true,
+        preferredFields: true,
+        locationPreferences: true,
+        achievements: true,
+        certificates: true,
+        photo: true,
+        profession: true,
+      },
+      relations: { experiences: true },
+    });
   }
 
   async findOne(id: number) {
